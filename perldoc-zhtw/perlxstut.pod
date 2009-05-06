@@ -1,21 +1,17 @@
 =head1 NAME
 
-perlXStut - Tutorial for writing XSUBs
+perlXStut - XSUBs 撰寫教學
 
 =head1 DESCRIPTION
 
-This tutorial will educate the reader on the steps involved in creating
-a Perl extension.  The reader is assumed to have access to L<perlguts>,
-L<perlapi> and L<perlxs>.
+這份教學會一步一步教導讀者建立 Perl 的擴充套件。
+首先讀者需要能夠取得 L<perlguts>, L<perlapi> 以及 L<perlxs> 文件。
 
-This tutorial starts with very simple examples and becomes more complex,
-with each new example adding new features.  Certain concepts may not be
-completely explained until later in the tutorial in order to slowly ease
-the reader into building extensions.
+這份教學文件以非常簡單的範例作為開始，並逐漸代入複雜的範例，每個範例都會新增一些新的功能。
+部份的概念可能沒有被完整的解釋，這些會到比較後面的部份做解釋，以幫助讀者建立擴充套件。
 
-This tutorial was written from a Unix point of view.  Where I know them
-to be otherwise different for other platforms (e.g. Win32), I will list
-them.  If you find something that was missed, please let me know.
+這份文件是以 Unix 的觀點來撰寫。對於其他不同的平台，我會已我所了解的，會將這些差異列出。
+如果你發現哪些被遺漏的，也請讓我知道。
 
 =head1 SPECIAL NOTES
 
