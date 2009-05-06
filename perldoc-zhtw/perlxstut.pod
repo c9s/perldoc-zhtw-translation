@@ -1,6 +1,6 @@
 =head1 NAME
 
-perlXStut - XSUBs 撰寫教學
+perlXStutTw - XSUBs 撰寫教學
 
 =head1 DESCRIPTION
 
@@ -17,19 +17,19 @@ perlXStut - XSUBs 撰寫教學
 
 =head2 make
 
-This tutorial assumes that the make program that Perl is configured to
-use is called C<make>.  Instead of running "make" in the examples that
-follow, you may have to substitute whatever make program Perl has been
-configured to use.  Running B<perl -V:make> should tell you what it is.
+這份文件假設 Perl 已經設定為使用 C<make> 程式。
+
+對於下面範例所執行的 "make" ，你應該要將之取代為目前 Perl 所設定的 make 程式。
+可使用 B<perl -V:make> 來檢視。
 
 =head2 Version caveat
 
-When writing a Perl extension for general consumption, one should expect that
-the extension will be used with versions of Perl different from the
-version available on your machine.  Since you are reading this document,
-the version of Perl on your machine is probably 5.005 or later, but the users
-of your extension may have more ancient versions.
+當撰寫一般性的 Perl 延伸套件時，你應該考量這份延伸套件有可能被用在
+其他 Perl 版本不同的機器上頭。
+因此當你讀這份文件時，你機上上頭的 Perl 的版本大概是 5.005 或之後的版本，
+但是其他使用者可能會有更古老的版本。
 
+要了解這些版本不相同的地方，還有.. (translate later)
 To understand what kinds of incompatibilities one may expect, and in the rare
 case that the version of Perl on your machine is older than this document,
 see the section on "Troubleshooting these Examples" for more information.
