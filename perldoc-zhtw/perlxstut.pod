@@ -29,20 +29,17 @@ perlXStutTw - XSUBs 撰寫教學
 因此當你讀這份文件時，你機上上頭的 Perl 的版本大概是 5.005 或之後的版本，
 但是其他使用者可能會有更古老的版本。
 
-要了解這些版本不相同的地方，還有.. (translate later)
-To understand what kinds of incompatibilities one may expect, and in the rare
-case that the version of Perl on your machine is older than this document,
-see the section on "Troubleshooting these Examples" for more information.
+要了解這些版本不相同的地方，以及在你機器上的 Perl 版本比這份文件舊的特殊案例。
+請參見 "Troubleshooting these Examples" 章節了解更多資訊。
 
-If your extension uses some features of Perl which are not available on older
-releases of Perl, your users would appreciate an early meaningful warning.
-You would probably put this information into the F<README> file, but nowadays
-installation of extensions may be performed automatically, guided by F<CPAN.pm>
-module or other tools.
+如果你的延伸套件使用了一些老舊的 Perl 使用的功能，你若提供一些有意義的警告訊息，
+使用者會感謝你的。
 
-In MakeMaker-based installations, F<Makefile.PL> provides the earliest
-opportunity to perform version checks.  One can put something like this
-in F<Makefile.PL> for this purpose:
+你也可以將這些資訊放在 F<README> (讀我檔)(裡頭，不過
+現在只要透過 F<CPAN.pm> 模組或其他工具，延伸套件都是可以自動安裝的。
+
+在以 MakeMaker 為基礎的安裝，F<Makefile.PL> 裡頭可以安插一些檢查版本的動作。 
+所以可以在 F<Makefile.PL> 裡頭插入以下類似程式來檢查版本。
 
     eval { require 5.007 }
         or die <<EOD;
@@ -52,7 +49,7 @@ in F<Makefile.PL> for this purpose:
     ############
     EOD
 
-=head2 Dynamic Loading versus Static Loading
+=head2 動態載入以及靜態載入
 
 It is commonly thought that if a system does not have the capability to
 dynamically load a library, you cannot build XSUBs.  This is incorrect.
