@@ -2,6 +2,10 @@
 
 perlXStutTw - XSUBs 撰寫教學
 
+=head1 譯者
+
+林佑安 (c9s) <F<cornelius.howl _at_ gmail.com>>
+
 =head1 DESCRIPTION
 
 這份教學會一步一步教導讀者建立 Perl 的擴充套件。
@@ -150,9 +154,8 @@ Makefile.PL 檔案應該看起來會像這樣:
 	CODE:
 	    printf("Hello, world!\n");
 
-It is okay for the lines starting at the "CODE:" line to not be indented.
-However, for readability purposes, it is suggested that you indent CODE:
-one level and the lines following one more level.
+以 CODE: 為開頭的行，不縮排是可以接受的。
+然而，為了可讀性，我們會建議你將 CODE: 縮排一層，並將接下來的其他行再縮一層
 
 Now we'll run "C<perl Makefile.PL>".  This will create a real Makefile,
 which make needs.  Its output looks something like:
