@@ -71,22 +71,22 @@ saying "C<make test>" is sufficient.
 
 =head1 TUTORIAL
 
-Now let's go on with the show!
+現在讓我們開始吧！
 
 =head2 EXAMPLE 1
 
-Our first extension will be very simple.  When we call the routine in the
-extension, it will print out a well-known message and return.
+我們第一個延伸套件相當的簡單。當我們呼叫延伸套件裡頭的副函式，
+他將會印出一些訊息並且回傳結果。
 
-Run "C<h2xs -A -n Mytest>".  This creates a directory named Mytest,
-possibly under ext/ if that directory exists in the current working
-directory.  Several files will be created in the Mytest dir, including
-MANIFEST, Makefile.PL, Mytest.pm, Mytest.xs, Mytest.t, and Changes.
+執行 "C<h2xs -A -n Mytest>"。 這樣將會建立 Mytest 目錄，
+如果你已經在這樣的目錄底下，則有可能會產生 ext/。
 
-The MANIFEST file contains the names of all the files just created in the
-Mytest directory.
+有些檔案會在 Mytest 目錄底下建立，包含了 MANIFEST, Makefile.PL
+Mytest.pm, Mytest.xs, Mytest.t 以及 Changes。
 
-The file Makefile.PL should look something like this:
+MANIFEST 檔案只是包含了剛剛在目錄裡頭產生的檔案。
+
+Makefile.PL 檔案應該看起來會像這樣:
 
     use ExtUtils::MakeMaker;
     # See lib/ExtUtils/MakeMaker.pm for details of how to influence
@@ -99,7 +99,7 @@ The file Makefile.PL should look something like this:
 	INC          => '',     # e.g., '-I/usr/include/other'
     );
 
-The file Mytest.pm should start with something like this:
+而 Mytest.pm 檔案則會像是這樣;
 
     package Mytest;
 
@@ -131,10 +131,9 @@ The file Mytest.pm should start with something like this:
     __END__
     # Below is the stub of documentation for your module. You better edit it!
 
-The rest of the .pm file contains sample code for providing documentation for
-the extension.
+.pm 檔案其餘的部份則包含了一些樣本程式以及延伸套件的文件。
 
-Finally, the Mytest.xs file should look something like this:
+最後 Mytest.xs 檔案會像這樣:
 
     #include "EXTERN.h"
     #include "perl.h"
@@ -144,7 +143,7 @@ Finally, the Mytest.xs file should look something like this:
 
     MODULE = Mytest		PACKAGE = Mytest
 
-Let's edit the .xs file by adding this to the end of the file:
+讓我們編輯 .xs 檔案，並在最底下新增以下程式:
 
     void
     hello()
