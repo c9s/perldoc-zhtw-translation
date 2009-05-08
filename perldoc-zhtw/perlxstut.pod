@@ -51,11 +51,9 @@ perlXStutTw - XSUBs 撰寫教學
 
 =head2 動態載入以及靜態載入
 
-It is commonly thought that if a system does not have the capability to
-dynamically load a library, you cannot build XSUBs.  This is incorrect.
-You I<can> build them, but you must link the XSUBs subroutines with the
-rest of Perl, creating a new executable.  This situation is similar to
-Perl 4.
+大多數會認為當系統不提供動態載入函式庫是不能建置 XSUBs。這是不正確的。
+你可以建置他們。 但是你必須另外使用 Perl 來連結這些 XSUBs 副函式來
+建立執行檔。 這樣的情況有點類似 Perl 4。
 
 This tutorial can still be used on such a system.  The XSUB build mechanism
 will check the system and build a dynamically-loadable library if possible,
