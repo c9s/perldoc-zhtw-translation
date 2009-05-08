@@ -55,10 +55,9 @@ perlXStutTw - XSUBs 撰寫教學
 你可以建置他們。 但是你必須另外使用 Perl 來連結這些 XSUBs 副函式來
 建立執行檔。 這樣的情況有點類似 Perl 4。
 
-This tutorial can still be used on such a system.  The XSUB build mechanism
-will check the system and build a dynamically-loadable library if possible,
-or else a static library and then, optionally, a new statically-linked
-executable with that static library linked in.
+這份教學仍然適用於像這樣的系統。 XSUB 建置的機制會檢查系統，並且如果可能的話
+建置動態載入函式庫。 或者建立一個靜態連結的函式庫，接著，可選擇的，
+建置新的與靜態函式庫連的靜態連結的執行檔
 
 Should you wish to build a statically-linked executable on a system which
 can dynamically load libraries, you may, in all the following examples,
