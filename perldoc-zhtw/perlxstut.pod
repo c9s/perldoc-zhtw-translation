@@ -157,8 +157,10 @@ Makefile.PL 檔案應該看起來會像這樣:
 以 CODE: 為開頭的行，不縮排是可以接受的。
 然而，為了可讀性，我們會建議你將 CODE: 縮排一層，並將接下來的其他行再縮一層
 
-Now we'll run "C<perl Makefile.PL>".  This will create a real Makefile,
-which make needs.  Its output looks something like:
+現在我們可以執行 "C<perl Makefile.PL>"。這樣會產生真正的 Makefile 來讓真正
+的 Make 程式讀取執行。
+
+執行結果會像這樣:
 
     % perl Makefile.PL
     Checking if your kit is complete...
@@ -166,9 +168,7 @@ which make needs.  Its output looks something like:
     Writing Makefile for Mytest
     %
 
-Now, running make will produce output that looks something like this (some
-long lines have been shortened for clarity and some extraneous lines have
-been deleted):
+現在，執行 make 會產生一些輸出如下 ( 有些額外的資訊我們省略 ) :
 
     % make
     cp lib/Mytest.pm blib/lib/Mytest.pm
