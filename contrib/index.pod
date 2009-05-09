@@ -2,5 +2,6 @@
 
 cpanplusfast - CPANPLUS 快速上手
 
+modulestarter - 使用 Module::Starter 建立模組框架
 
 

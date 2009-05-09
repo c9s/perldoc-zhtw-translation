@@ -3,7 +3,11 @@
 
 CPANPLUS 快速上手
 
-=head1 簡介
+=head1 AUTHOR
+
+林佑安 (c9s) cornelius.howl _at_ gmail.com
+
+=head1 DESCRIPTION
 
 CPANPLUS 是一能夠幫你輕鬆安裝 CPAN 模組的工具。若沒 CPANPLUS 或 CPAN Shell
 ，我們就需上 http://search.cpan.org/ 手動下載模組，並 perl Makefile.PL , make ,

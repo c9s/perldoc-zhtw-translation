@@ -1,0 +1,101 @@
+
+=head1 NAME
+
+使用 Module::Starter 建立模組框架 
+
+=head1 AUTHOR
+
+林佑安 (c9s) cornelius.howl _at_ gmail.com
+
+=head1 DESCRIPTION
+
+當你開始想要寫模組的時候，其實一般人都會使用 h2xs 來建立模組框架。不過對於需要
+xs 的模組之外，現在有更好的選擇，就是 Module::Starter 模組。
+他提供更有彈性的方式來建立模組框架。
+
+Perl 用來將 Makefile.PL 轉成 Makefile 的模組相當的多，其中三種主要是
+ExtUtils::MakeMaker 以及 Module::Build , Module::Install 。不過 Module::Build
+無法讓你 Uninstall 已經安裝的模組 ，所以一般來說 Perl 預設都是使用
+ExtUtils::MakeMaker 來將 Makefile.PL 產生 Makefile 再讓 GNU make
+讀取並編譯安裝。
+
+一般的程序是這樣:
+
+    perl Makefile.PL
+    make
+    make test
+    make install
+
+# 註: 加上 make test 做測試的話 ，如果 mail 沒有被 ISP 擋掉，基本上都會送至
+# cpan 網站，彙整測試報告，統計各種系統、版本等的測試結果。
+
+然而 ExtUtils::MakeMaker 仍是有很多不足的地方，所以後來 Module::Install
+誕生，Module::Install 主要是 MakeMaker 的 Wrapper，不過提供更多的
+Option，可以在 perl Makefile.PL 時讓安裝選擇、檢查更加多元。
+
+以 Jifty 的 Makefile.PL 舉例:
+
+    use inc::Module::Install 0.46;
+    name('Jifty');
+    license('Perl');
+    include('Module::AutoInstall');
+    perl_version '5.8.3';
+    requires('App::CLI' => 0.08 ); # App::CLI::Command::Help App::CLI::Command
+    requires('Cache::Cache'); #Cache::FileCache
+    requires('Calendar::Simple');
+    requires('Class::Accessor'); # Class::Accessor::Fast
+    requires('Class::Container');
+    requires('Class::Data::Inheritable');
+    
+    # ... skip
+ 
+    feature 'Administrative Interface (web)' =>
+        -default => 1,
+        recommends('Pod::Simple' => 0), # Pod::Simple::Text Pod::Simple::HTML
+        ;
+ 
+    feature 'Development of a jifty application' =>
+        -default => 1,
+        recommends('DBD::SQLite' => 1.11),
+        recommends('Test::Base' => 0.44), # Test::Base::Filter
+        recommends('Module::Install::Admin' => '0.50'),
+        recommends('Test::HTTP::Server::Simple' => '0.10'),
+        recommends('Test::HTML::Lint' => 0),
+        recommends('Test::MockModule' => '0.05'),
+        recommends('Test::MockObject' => '1.07'),
+        recommends('Module::Refresh' => '0.09'),
+        recommends('Test::WWW::Declare' => '0.01'),
+        recommends('Test::Email' => 0),
+        recommends('Email::Abstract' => 0),
+        ;
+
+
+由於 Makefile.PL 裡頭引入 Module::Install ，因此使用者在安裝 Jifty
+的時候便可以選擇要不要哪些功能而決定接下來要安裝的模組。也可在 Makefile.PL
+裡頭用相當簡潔的語法來敘述相依的模組版本、測試路徑、安裝路徑、文件等等。
+
+但是你不需要自己手動將 lib/ , Makefile.PL , inc/ , .. 等等建好，因為
+Module::Starter 便是幫你自動處理這樣的事情。
+
+你可以透過 Module::Starter 所提供的 module-starter script 指定你想要哪種
+Makefile Maker ( ExtUtils::MakeMaker or Module::Build , Module::Install
+)。其實我會比較各位使用推薦 Module::Install，因為作者是 Adam Kennedy, Audrey
+Tang (唐鳳) 與 Ingy。 :p
+
+在使用 Module::Starter 之前，你需要安裝 Module::Starter 模組:
+
+    $ sudo cpan Module::Starter
+
+使用 module-starter 建立 Foo::Bar 模組，並搭配 Module::Install :
+
+    $ module-starter --verbose --module=Foo::Bar --mi --author=Cornelius \
+                            --email=cornelius.howl_at_gmail.com
+
+這樣就會將 Foo::Bar 模組建立於 Foo-Bar 底下。 --mi 是指使用 Module::Install
+，若要使用 ExtUtils::MakeMaker 則用 --eumm ，若用 Module::Build 則用
+--mb。如果你想指定 License 也可以透過 --license=TYPE 來指定。
+
+Has Fun!
+
+# 最近應該會陸續寫一些 Programming Perl 或是 Learning Perl
+# 上面未提到的東西。事實上對於現今 Perl 的發展，目前中文書籍涵蓋的內容並不多。
