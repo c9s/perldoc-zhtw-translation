@@ -1,0 +1,92 @@
+
+=head1 NAME
+
+CPANPLUS 快速上手
+
+=head1 簡介
+
+CPANPLUS 是一能夠幫你輕鬆安裝 CPAN 模組的工具。若沒 CPANPLUS 或 CPAN Shell
+，我們就需上 http://search.cpan.org/ 手動下載模組，並 perl Makefile.PL , make ,
+make install 的手續來安裝，若是遇到相依性的問題，那麼就更又頭大。
+
+所以，幸好有 CPANPLUS ，我們就可以輕鬆安裝模組。
+
+由於 Perl5.10 已經提供 CPANPLUS Shell , 所以我們只需要稍做調校就可以使用。
+
+第一次進 CPANPLUS ，需要稍微調整一下參數，譬如說 Mirror Site , 以及 Follow
+Prerequisite ，等可以幫助自己省事安裝模組的設定。
+
+在進入之前，如果你沒有 root 或是 sudo 的權限，可以參考這篇: 安裝 CPAN 模組於
+Home 目錄下
+
+=head1 進入 CPANPLUS
+
+首先先進入 CPANPLUS:
+
+    $ sudo cpanp
+
+設定 Mirror Site
+第一次執行 CPANPLUS 請先進入設定選單來選擇速度較快的 Mirror Site:
+
+    s reconfigure
+
+選 7 Select mirrors
+
+輸入 No 不保留目前設定 (才能繼續設定)
+
+選 1 Mirror ，接著 CPANPLUS 會去下載 Mirror List
+
+選 3 Asia
+
+選 9 Taiwan
+
+輸入你想要的 MirrorSite 號碼，譬如說 1 3 5 8 ，用空白分隔
+
+選完之後選擇 Quit 跳出，設定就會自動儲存
+
+選 9 Save and exit
+
+Ctrl-D 跳出即可。
+設定對每個相依模組安裝時行為 ( No, Yes, Ask, Build but not install )
+通常對一次要安裝許多 CPAN 模組，每次預設都問是否安裝實在太煩人了。進入 cpanp 之後請下:
+
+    s conf prereqs 1
+    s save
+
+是否執行模組單元測試
+對於 CPAN 模組，都會固定有一些單元測試，用來測試在你系統上每個功能是否運作正常。因此會花去一些時間來做測試，這些測試結果當然不浪費掉，他會送至 CPAN 網站做彙整、統計。
+
+如果覺得每次測試太花時間，可以將測試取消:
+
+    s conf skiptest 1
+    s save
+
+=head1 基本使用
+
+進入 CPANPLUS Shell 之後，按下 ? 會出現說明頁面。
+
+首先可以先將 CPANPLUS 本身更新 ，請輸入:
+
+    s selfupdate all
+
+之後我們可以先安裝一下 Bundle::CPAN 模組，將一些必要模組安裝 (非必要) ，請輸入:
+
+    i Bundle::CPAN
+
+接下來動手安裝你想把玩的模組吧！就會輕鬆的多！
+安裝模組
+譬如說，安裝 Data::Dumper::Simple
+
+    i Data::Dumper::Simple
+
+或者用關鍵字尋找 YAML 有關的模組:
+
+    m YAML
+
+又或者搜尋某作者的模組
+
+    a leon
+
+以上。
+
+Have Fun!
