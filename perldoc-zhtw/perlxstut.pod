@@ -187,11 +187,12 @@ Makefile.PL 檔案應該看起來會像這樣:
     Manifying blib/man3/Mytest.3pm
     %
 
-You can safely ignore the line about "prototyping behavior" - it is
-explained in the section "The PROTOTYPES: Keyword" in L<perlxs>.
+你可以放心忽略 原型行為 (prototyping behavior) - 他將在 L<perlxs>
+內的 "The PROTOTYPES: Keyword" 章節解釋。
 
-If you are on a Win32 system, and the build process fails with linker
-errors for functions in the C library, check if your Perl is configured
+如果你使用 Win32 系統，且因為連結器連結 C 函式庫而導致建置失敗，
+請檢查你的 Perl 是否被設定使用 PerlCRT ( 使用 B<perl -V:libc> 顯示 )
+
 to use PerlCRT (running B<perl -V:libc> should show you if this is the
 case).  If Perl is configured to use PerlCRT, you have to make sure
 PerlCRT.lib is copied to the same location that msvcrt.lib lives in,
